@@ -148,8 +148,6 @@
         Bundle 'tpope/vim-markdown'
     " }
 
-    endif
-
 " }
 
 " Use local bundles config if available {
