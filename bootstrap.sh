@@ -20,7 +20,6 @@ app_name='spf13-vim'
 [ -z "$REPO_URI" ] && REPO_URI='https://github.com/calle-gunnarsson/spf13-vim.git'
 [ -z "$REPO_BRANCH" ] && REPO_BRANCH='3.0-light'
 debug_mode='0'
-fork_maintainer='0'
 [ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/gmarik/vundle.git"
 
 ############################  BASIC SETUP TOOLS
@@ -123,8 +122,10 @@ create_symlinks() {
 
     lnif "$source_path/.vimrc"         "$target_path/.vimrc"
     lnif "$source_path/.vimrc.bundles" "$target_path/.vimrc.bundles"
-    lnif "$source_path/.vimrc.before"  "$target_path/.vimrc.before"
     lnif "$source_path/.vim"           "$target_path/.vim"
+    if [ ! -f "$source_path/.vimrc.before" ]; then
+        cp "$source_path/.vimrc.before"    "$target_path/.vimrc.before"
+    fi
 
     if program_exists "nvim"; then
         lnif "$source_path/.vim"       "$target_path/.config/nvim"
@@ -136,25 +137,6 @@ create_symlinks() {
     ret="$?"
     success "Setting up vim symlinks."
     debug
-}
-
-setup_fork_mode() {
-    local source_path="$2"
-    local target_path="$3"
-
-    if [ "$1" -eq '1' ]; then
-        touch "$target_path/.vimrc.fork"
-        touch "$target_path/.vimrc.bundles.fork"
-        touch "$target_path/.vimrc.before.fork"
-
-        lnif "$source_path/.vimrc.fork"         "$target_path/.vimrc.fork"
-        lnif "$source_path/.vimrc.bundles.fork" "$target_path/.vimrc.bundles.fork"
-        lnif "$source_path/.vimrc.before.fork"  "$target_path/.vimrc.before.fork"
-
-        ret="$?"
-        success "Created fork maintainer files."
-        debug
-    fi
 }
 
 setup_vundle() {
@@ -189,10 +171,6 @@ sync_repo       "$APP_PATH" \
                 "$app_name"
 
 create_symlinks "$APP_PATH" \
-                "$HOME"
-
-setup_fork_mode "$fork_maintainer" \
-                "$APP_PATH" \
                 "$HOME"
 
 sync_repo       "$HOME/.vim/bundle/vundle" \
