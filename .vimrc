@@ -80,14 +80,6 @@
 " }
 
 " General {
-    set background=dark         " Assume a dark background
-    if ( exists( "$VIM_LIGHT" ) )
-        set background=light
-
-        if filereadable(expand("~/.vim/bundle/vim-solarized8/colors/solarized8_light"))
-            color solarized8_light             " Load a colorscheme
-        endif
-    endif
 
     " Allow to trigger background
     function! ToggleBG()
@@ -190,17 +182,20 @@
         set termguicolors
     endif
 
-    if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-        let g:solarized_termcolors=256
-        let g:solarized_termtrans=1
-        let g:solarized_contrast="normal"
-        let g:solarized_visibility="normal"
-        call togglebg#map("<F5>")
-        color solarized             " Load a colorscheme
+    set background=dark         " Assume a dark background
+    if ( exists( "$VIM_LIGHT" ) )
+        set background=light
     endif
 
-    if filereadable(expand("~/.vim/bundle/vim-solarized8/colors/solarized8_dark.vim"))
-        color solarized8_dark             " Load a colorscheme
+    if filereadable(expand("~/.vim/bundle/gruvbox/colors/gruvbox.vim"))
+        let g:gruvbox_contrast_dark = 'hard'
+        let g:gruvbox_contrast_light = 'medium'
+        let g:gruvbox_termcolors = 256
+        let g:gruvbox_bold = 1
+        let g:gruvbox_italic = 1
+        let g:gruvbox_improved_strings = 0
+        let g:gruvbox_improved_warnings = 1
+        color gruvbox
     endif
 
     set tabpagemax=15               " Only show 15 tabs
@@ -742,7 +737,7 @@
         " Default in terminal vim is 'dark'
         if isdirectory(expand("~/.vim/bundle/vim-airline-themes/"))
             if !exists('g:airline_theme')
-                let g:airline_theme = 'solarized'
+                let g:airline_theme = 'gruvbox'
             endif
             if !exists('g:airline_powerline_fonts')
                 " Use the default set of separators with a few customizations

@@ -90,9 +90,7 @@
     " .vimrc.bundles.local file:
     "   let g:override_spf13_bundles = 1
     " General {
-        Bundle 'altercation/vim-colors-solarized'
         Bundle 'morhetz/gruvbox'
-        Bundle 'lifepillar/vim-solarized8'
         Bundle 'rhysd/conflict-marker.vim'
         Bundle 'jiangmiao/auto-pairs'
         Bundle 'ctrlpvim/ctrlp.vim'
