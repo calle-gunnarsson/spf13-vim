@@ -15,8 +15,7 @@
 "   This file imports the various plugins of spf13. If you
 "   wish to alter which groups are imported, see vimrc.before.
 "   If you wish to add or remove individual bundles, create
-"   ~/.vimrc.bundles.local and `Bundle` or `UnBundle` as needed
-"   from there.
+"   ~/.vimrc.bundles.local and `Bundle` or `UnBundle` as needed "   from there.
 "
 "   You can find me at http://spf13.com
 " }
@@ -92,6 +91,8 @@
     "   let g:override_spf13_bundles = 1
     " General {
         Bundle 'altercation/vim-colors-solarized'
+        Bundle 'morhetz/gruvbox'
+        Bundle 'lifepillar/vim-solarized8'
         Bundle 'rhysd/conflict-marker.vim'
         Bundle 'jiangmiao/auto-pairs'
         Bundle 'ctrlpvim/ctrlp.vim'

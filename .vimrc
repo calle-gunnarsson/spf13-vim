@@ -57,7 +57,7 @@
           set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
         endif
     " }
-    
+
     " Arrow Key Fix {
         " https://github.com/spf13/spf13-vim/issues/780
         if &term[:4] == "xterm" || &term[:5] == 'screen' || &term[:3] == 'rxvt'
@@ -80,8 +80,14 @@
 " }
 
 " General {
-
     set background=dark         " Assume a dark background
+    if ( exists( "$VIM_LIGHT" ) )
+        set background=light
+
+        if filereadable(expand("~/.vim/bundle/vim-solarized8/colors/solarized8_light"))
+            color solarized8_light             " Load a colorscheme
+        endif
+    endif
 
     " Allow to trigger background
     function! ToggleBG()
@@ -97,7 +103,7 @@
 
     " if !has('gui')
         "set term=$TERM          " Make arrow and other keys work
-    " endif
+     "endif
     filetype plugin indent on   " Automatically detect file types.
     syntax on                   " Syntax highlighting
     set mouse=a                 " Automatically enable mouse usage
@@ -176,8 +182,12 @@
 " }
 
 " Vim UI {
-    if ( exists( "$VIM_LIGHT" ) )
-        set background=light
+    if has("termguicolors")     " set true colors
+        "set t_8f = "[38;2;%lu;%lu;%lum"
+        "set t_8b = "[48;2;%lu;%lu;%lum"
+        let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+        let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+        set termguicolors
     endif
 
     if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
@@ -187,6 +197,10 @@
         let g:solarized_visibility="normal"
         call togglebg#map("<F5>")
         color solarized             " Load a colorscheme
+    endif
+
+    if filereadable(expand("~/.vim/bundle/vim-solarized8/colors/solarized8_dark.vim"))
+        color solarized8_dark             " Load a colorscheme
     endif
 
     set tabpagemax=15               " Only show 15 tabs
@@ -759,6 +773,7 @@
             set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
         endif
         "set term=builtin_ansi       " Make arrow and other keys work
+        "
     endif
 
 " }
