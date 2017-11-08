@@ -183,7 +183,7 @@
     endif
 
     set background=dark         " Assume a dark background
-    if ( exists( "$VIM_LIGHT" ) )
+    if ( exists( "$VIM_LIGHT" ) && $VIM_LIGHT )
         set background=light
     endif
 
