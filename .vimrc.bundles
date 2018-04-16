@@ -79,22 +79,14 @@
         if executable('ag')
             Bundle 'mileszs/ack.vim'
             let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
-        elseif executable('ack-grep')
-            let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-            Bundle 'mileszs/ack.vim'
-        elseif executable('ack')
-            Bundle 'mileszs/ack.vim'
         endif
     " }
-    " To override all the included bundles, add the following to your
-    " .vimrc.bundles.local file:
-    "   let g:override_spf13_bundles = 1
+    "
     " General {
         Bundle 'morhetz/gruvbox'
         Bundle 'rhysd/conflict-marker.vim'
         Bundle 'jiangmiao/auto-pairs'
         Bundle 'ctrlpvim/ctrlp.vim'
-        Bundle 'tacahiroy/ctrlp-funky'
         Bundle 'terryma/vim-multiple-cursors'
 
         Bundle 'vim-airline/vim-airline'
@@ -108,7 +100,6 @@
         Bundle 'scrooloose/syntastic'
         Bundle 'tpope/vim-fugitive'
         Bundle 'scrooloose/nerdcommenter'
-        Bundle 'godlygeek/tabular'
         Bundle 'luochen1990/rainbow'
         if executable('ctags')
             Bundle 'majutsushi/tagbar'
@@ -120,26 +111,24 @@
     " }
 
     " Python {
-        " Pick either python-mode or pyflakes & pydoc
         Bundle 'klen/python-mode'
-        Bundle 'yssource/python.vim'
         Bundle 'python_match.vim'
-        Bundle 'pythoncomplete'
     " }
 
     " Javascript {
         Bundle 'elzr/vim-json'
-        Bundle 'groenewege/vim-less'
         Bundle 'pangloss/vim-javascript'
+        Bundle 'leafgarland/typescript-vim'
     " }
 
     " HTML {
         Bundle 'vim-scripts/HTML-AutoCloseTag'
         Bundle 'hail2u/vim-css3-syntax'
+        Bundle 'groenewege/vim-less'
         Bundle 'gorodinskiy/vim-coloresque'
     " }
 
-    " Go Lang {
+    " Go {
         Bundle 'fatih/vim-go'
     " }
 
