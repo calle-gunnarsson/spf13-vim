@@ -684,6 +684,15 @@
             endif
         endif
     " }
+    
+    " auto-pairs {
+        if OSX()
+            let g:AutoPairsShortcutBackInsert = '<ESC>b'
+            let g:AutoPairsShortcutJump = '<ESC>n'
+            let g:AutoPairsShortcutFastWrap = '<ESC>e'
+            let g:AutoPairsShortcutToggle = '<ESC>p'
+        endif
+    " }
 " }
 
 " GUI Settings {
@@ -692,7 +701,7 @@
     if has('gui_running')
         set guioptions-=T           " Remove the toolbar
         set lines=40                " 40 lines of text instead of 24
-        if !exists("g:spf13_no_big_font")
+        ig:AutoPairsShortcutTogglef !exists("g:spf13_no_big_font")
             if LINUX() && has("gui_running")
                 set guifont=Andale\ Mono\ Regular\ 12,Menlo\ Regular\ 11,Consolas\ Regular\ 12,Courier\ New\ Regular\ 14
             elseif OSX() && has("gui_running")
