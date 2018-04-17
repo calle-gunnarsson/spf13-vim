@@ -102,6 +102,7 @@
         Bundle 'tpope/vim-fugitive'
         Bundle 'scrooloose/nerdcommenter'
         Bundle 'scrooloose/nerdtree'
+        Bundle 'jistr/vim-nerdtree-tabs'
         Bundle 'luochen1990/rainbow'
         if executable('ctags')
             Bundle 'majutsushi/tagbar'
