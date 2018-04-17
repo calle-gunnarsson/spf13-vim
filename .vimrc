@@ -612,6 +612,7 @@
     "}
 
     " YouCompleteMe {
+    if !exists('g:no_ycm')
             let g:acp_enableAtStartup = 0
 
             " enable completion from tags
@@ -644,6 +645,7 @@
             " When enabled, there can be too much visual noise
             " especially when splits are used.
             set completeopt-=preview
+        endif
     " }
 
     " UndoTree {

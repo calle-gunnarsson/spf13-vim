@@ -109,7 +109,9 @@
     " }
 
     " AutoComplete {
+    if !exists('g:no_ycm')
         Bundle 'Valloric/YouCompleteMe'
+    endif
     " }
 
     " Python {
