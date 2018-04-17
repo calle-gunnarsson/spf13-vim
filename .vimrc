@@ -38,24 +38,10 @@
         silent function! LINUX()
             return has('unix') && !has('macunix') && !has('win32unix')
         endfunction
-        silent function! WINDOWS()
-            return  (has('win32') || has('win64'))
-        endfunction
     " }
 
     " Basics {
         set nocompatible        " Must be first line
-        if !WINDOWS()
-            set shell=/bin/sh
-        endif
-    " }
-
-    " Windows Compatible {
-        " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
-        " across (heterogeneous) systems easier.
-        if WINDOWS()
-          set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-        endif
     " }
 
     " Arrow Key Fix {
@@ -558,8 +544,6 @@
 
             if executable('ag')
                 let s:ctrlp_fallback = 'ag %s --nocolor -l -g ""'
-            elseif WINDOWS()
-                let s:ctrlp_fallback = 'dir %s /-n /b /s /a-d'
             else
                 let s:ctrlp_fallback = 'find %s -type f'
             endif
@@ -662,6 +646,18 @@
             set completeopt-=preview
     " }
 
+    " UndoTree {
+        if isdirectory(expand("~/.vim/bundle/undotree/"))
+            nnoremap <Leader>u :UndotreeToggle<CR>
+            " If undotree is opened, it is likely one wants to interact with it.
+            let g:undotree_SetFocusWhenToggle=1
+        endif
+    " }
+    " NerdTree {
+        if isdirectory(expand("~/.vim/bundle/nerdtree"))
+            let g:NERDShutUp=1
+        endif
+    " }
     " vim-airline {
         " Set configuration options for the statusline plugin vim-airline.
         " Use the powerline theme and optionally enable powerline symbols.
@@ -687,10 +683,9 @@
     
     " auto-pairs {
         if OSX()
-            let g:AutoPairsShortcutBackInsert = '<ESC>b'
-            let g:AutoPairsShortcutJump = '<ESC>n'
-            let g:AutoPairsShortcutFastWrap = '<ESC>e'
-            let g:AutoPairsShortcutToggle = '<ESC>p'
+            let g:AutoPairsShortcutBackInsert = '<ESC>B'
+            let g:AutoPairsShortcutJump = '<ESC>N'
+            let g:AutoPairsShortcutFastWrap = '<ESC>E'
         endif
     " }
 " }
@@ -701,13 +696,11 @@
     if has('gui_running')
         set guioptions-=T           " Remove the toolbar
         set lines=40                " 40 lines of text instead of 24
-        ig:AutoPairsShortcutTogglef !exists("g:spf13_no_big_font")
+        if !exists("g:spf13_no_big_font")
             if LINUX() && has("gui_running")
                 set guifont=Andale\ Mono\ Regular\ 12,Menlo\ Regular\ 11,Consolas\ Regular\ 12,Courier\ New\ Regular\ 14
             elseif OSX() && has("gui_running")
                 set guifont=Andale\ Mono\ Regular:h12,Menlo\ Regular:h11,Consolas\ Regular:h12,Courier\ New\ Regular:h14
-            elseif WINDOWS() && has("gui_running")
-                set guifont=Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
             endif
         endif
     else

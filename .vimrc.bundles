@@ -97,9 +97,11 @@
     " }
 
     " General Programming {
+        Bundle 'mbbill/undotree'
         Bundle 'scrooloose/syntastic'
         Bundle 'tpope/vim-fugitive'
         Bundle 'scrooloose/nerdcommenter'
+        Bundle 'scrooloose/nerdtree'
         Bundle 'luochen1990/rainbow'
         if executable('ctags')
             Bundle 'majutsushi/tagbar'

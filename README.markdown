@@ -1,17 +1,17 @@
 # spf13-vim : Steve Francia's Vim Distribution
 
-                    __ _ _____              _
-         ___ _ __  / _/ |___ /      __   __(_)_ __ ___
-        / __| '_ \| |_| | |_ \ _____\ \ / /| | '_ ` _ \
-        \__ \ |_) |  _| |___) |_____|\ V / | | | | | | |
-        |___/ .__/|_| |_|____/        \_/  |_|_| |_| |_|
+                    __ _ _____             _
+         ___ _ __  / _/ |___ /     __   __(_)_ __ ___
+        / __| '_ \| |_| | |_ \     \ \ / /| | '_ ` _ \ 
+        \__ \ |_) |  _| |___) |LIGHT\ V / | | | | | | |
+        |___/ .__/|_| |_|____/       \_/  |_|_| |_| |_|
             |_|
 
-spf13-vim is a distribution of vim plugins and resources for Vim, Gvim and [MacVim].
+spf13-vim-light is a distribution of vim plugins and resources for Vim, Gvim and [MacVim], forked from spf13-vim.
 
-It is a good starting point for anyone intending to use VIM for development running equally well on Windows, Linux, \*nix and Mac.
+It is a good starting point for anyone intending to use VIM for development running equally well on Linux, \*nix and Mac.
 
-The distribution is completely customisable using a `~/.vimrc.local`, `~/.vimrc.bundles.local`, and `~/.vimrc.before.local` Vim RC files.
+The distribution is completely customisable using a `~/.vimrc.local`, `~/.vimrc.bundles.local`, and `~/.vimrc.before` Vim RC files.
 
 ![spf13-vim image][spf13-vim-img]
 
@@ -19,7 +19,7 @@ Unlike traditional VIM plugin structure, which similar to UNIX throws all files 
 
 Great care has been taken to ensure that each plugin plays nicely with others, and optional configuration has been provided for what we believe is the most efficient use.
 
-Lastly (and perhaps, most importantly) It is completely cross platform. It works well on Windows, Linux and OSX without any modifications or additional configurations. If you are using [MacVim] or Gvim additional features are enabled. So regardless of your environment just clone and run.
+Lastly (and perhaps, most importantly) It is completely cross platform. It works well on Linux and OSX without any modifications or additional configurations. If you are using [MacVim] or Gvim additional features are enabled. So regardless of your environment just clone and run.
 
 # Installation
 ## Requirements
@@ -33,86 +33,21 @@ The easiest way to install spf13-vim is to use our [automatic installer](https:/
 
 ```bash
 
-    curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
+    curl https://raw.githubusercontent.com/calle-gunnarsson/spf13-vim/3.0-light/bootstrap.sh > spf13-vim-light.sh && sh spf13-vim-light.sh
 ```
 
 If you have a bash-compatible shell you can run the script directly:
 ```bash
 
-    sh <(curl https://j.mp/spf13-vim3 -L)
+    sh <(curl https://raw.githubusercontent.com/calle-gunnarsson/spf13-vim/3.0-light/bootstrap.sh)
 ```
-
-## Installing on Windows
-
-On Windows and \*nix [Git] and [Curl] are required. Also, if you haven't done so already, you'll need to install [Vim].
-The quickest option to install all three dependencies ([Git], [Curl], [Vim] and [spf13-vim]) is via [Chocolatey] NuGet. After installing [Chocolatey], execute the following commands on the _command prompt_:
-
-    C:\> choco install spf13-vim
-
-_Note: The [spf13-vim package] will install Vim also!_
-
-If you want to install [msysgit], [Curl] and [spf13-vim] individually, follow the directions below.
-
-### Installing dependencies
-
-#### Install [Vim]
-
-After the installation of Vim you must add a new directory to your environment variables path to make it work with the script installation of spf13.
-
-Open Vim and write the following command, it will show the installed directory:
-
-    :echo $VIMRUNTIME
-    C:\Program Files (X86)\Vim\vim74
-
-Then you need to add it to your environment variable path. After that try execute `vim` within command prompt (press Win-R, type `cmd`, press Enter) and you’ll see the default vim page.
-
-#### Install [msysgit]
-
-After installation try running `git --version` within _command prompt_ (press Win-R,  type `cmd`, press Enter) to make sure all good:
-
-    C:\> git --version
-    git version 1.7.4.msysgit.0
-
-#### Setup [Curl]
-_Instructions blatently copied from vundle readme_
-Installing Curl on Windows is easy as [Curl] is bundled with [msysgit]!
-But before it can be used with [Vundle] it's required make `curl` run in _command prompt_.
-The easiest way is to create `curl.cmd` with [this content](https://gist.github.com/912993)
-
-    @rem Do not use "echo off" to not affect any child calls.
-    @setlocal
-
-    @rem Get the abolute path to the parent directory, which is assumed to be the
-    @rem Git installation root.
-    @for /F "delims=" %%I in ("%~dp0..") do @set git_install_root=%%~fI
-    @set PATH=%git_install_root%\bin;%git_install_root%\mingw\bin;%PATH%
-
-    @if not exist "%HOME%" @set HOME=%HOMEDRIVE%%HOMEPATH%
-    @if not exist "%HOME%" @set HOME=%USERPROFILE%
-
-    @curl.exe %*
-
-
-And copy it to `C:\Program Files\Git\cmd\curl.cmd`, assuming [msysgit] was installed to `c:\Program Files\Git`
-
-to verify all good, run:
-
-    C:\> curl --version
-    curl 7.21.1 (i686-pc-mingw32) libcurl/7.21.1 OpenSSL/0.9.8k zlib/1.2.3
-    Protocols: dict file ftp ftps http https imap imaps ldap ldaps pop3 pop3s rtsp smtp smtps telnet tftp
-    Features: Largefile NTLM SSL SSPI libz
-
-
-#### Installing spf13-vim on Windows
-
-The easiest way is to download and run the spf13-vim-windows-install.cmd file. Remember to run this file in **Administrator Mode** if you want the symlinks to be created successfully.
 
 ## Updating to the latest version
 The simpliest (and safest) way to update is to simply rerun the installer. It will completely and non destructively upgrade to the latest version.
 
 ```bash
 
-    curl https://j.mp/spf13-vim3 -L -o - | sh
+    curl https://raw.githubusercontent.com/calle-gunnarsson/spf13-vim/3.0-light/bootstrap.sh -L -o - | sh
 
 ```
 
@@ -137,7 +72,7 @@ Each section is labeled and each option is commented.
 
 It fixes many of the inconveniences of vanilla vim including
 
- * A single config can be used across Windows, Mac and linux
+ * A single config can be used across Mac and linux
  * Eliminates swap and backup files from littering directories, preferring to store in a central location.
  * Fixes common typos like :W, :Q, etc
  * Setup a solid set of settings for Formatting (change to meet your needs)
@@ -286,48 +221,12 @@ Ctrlp replaces the Command-T plugin with a 100% viml plugin. It provides an intu
 
 **QuickStart** Launch using `<c-p>`.
 
-## [Surround]
-
-This plugin is a tool for dealing with pairs of "surroundings."  Examples
-of surroundings include parentheses, quotes, and HTML tags.  They are
-closely related to what Vim refers to as text-objects.  Provided
-are mappings to allow for removing, changing, and adding surroundings.
-
-Details follow on the exact semantics, but first, consider the following
-examples.  An asterisk (*) is used to denote the cursor position.
-
-      Old text                  Command     New text ~
-      "Hello *world!"           ds"         Hello world!
-      [123+4*56]/2              cs])        (123+456)/2
-      "Look ma, I'm *HTML!"     cs"<q>      <q>Look ma, I'm HTML!</q>
-      if *x>3 {                 ysW(        if ( x>3 ) {
-      my $str = *whee!;         vllllS'     my $str = 'whee!';
-
-For instance, if the cursor was inside `"foo bar"`, you could type
-`cs"'` to convert the text to `'foo bar'`.
-
-There's a lot more, check it out at `:help surround`
-
 ## [NERDCommenter]
 
 NERDCommenter allows you to wrangle your code comments, regardless of
 filetype. View `help :NERDCommenter` or checkout my post on [NERDCommenter](http://spf13.com/post/vim-plugins-nerd-commenter).
 
 **QuickStart** Toggle comments using `<Leader>c<space>` in Visual or Normal mode.
-
-## [neocomplete]
-
-Neocomplete is an amazing autocomplete plugin with additional support for snippets. It can complete simulatiously from the dictionary, buffer, omnicomplete and snippets. This is the one true plugin that brings Vim autocomplete on par with the best editors.
-
-**QuickStart** Just start typing, it will autocomplete where possible
-
-**Customizations**:
-
- * Automatically present the autocomplete menu
- * Support tab and enter for autocomplete
- * `<C-k>` for completing snippets using [Neosnippet](https://github.com/Shougo/neosnippet.vim).
-
-![neocomplete image][autocomplete-img]
 
 ## [YouCompleteMe]
 
@@ -387,38 +286,12 @@ file
 
 ![fugitive image][fugitive-img]
 
-## [PIV]
-
-The most feature complete and up to date PHP Integration for Vim with proper support for PHP 5.3+ including latest syntax, functions, better fold support, etc.
-
-PIV provides:
-
- * PHP 5.3 support
- * Auto generation of PHP Doc (,pd on (function, variable, class) definition line)
- * Autocomplete of classes, functions, variables, constants and language keywords
- * Better indenting
- * Full PHP documentation manual (hit K on any function for full docs)
-
-![php vim itegration image][phpmanual-img]
-
 ## [Ack.vim]
 
 Ack.vim uses ack to search inside the current directory for a pattern.
 You can learn more about it with `:help Ack`
 
 **QuickStart** :Ack
-
-## [Tabularize]
-
-Tabularize lets you align statements on their equal signs and other characters
-
-**Customizations**:
-
- * `<Leader>a= :Tabularize /=<CR>`
- * `<Leader>a: :Tabularize /:<CR>`
- * `<Leader>a:: :Tabularize /:\zs<CR>`
- * `<Leader>a, :Tabularize /,<CR>`
- * `<Leader>a<Bar> :Tabularize /<Bar><CR>`
 
 ## [Tagbar]
 
@@ -471,27 +344,9 @@ spf13-vim ships with a few additional syntaxes:
 
 spf13-vim includes [solarized] and [spf13 vim color pack](https://github.com/spf13/vim-colors/):
 
-* ir_black
-* molokai
-* peaksea
+* gruvbox
 
 Use `:color molokai` to switch to a color scheme.
-
-Terminal Vim users will benefit from solarizing their terminal emulators and setting solarized support to 16 colors:
-
-    let g:solarized_termcolors=16
-    color solarized
-
-Terminal emulator colorschemes:
-
-* http://ethanschoonover.com/solarized (iTerm2, Terminal.app)
-* https://github.com/phiggins/konsole-colors-solarized (KDE Konsole)
-* https://github.com/sigurdga/gnome-terminal-colors-solarized (Gnome Terminal)
-
-## Snippets
-
-It also contains a very complete set of [snippets](https://github.com/spf13/snipmate-snippets) for use with snipmate or [neocomplete].
-
 
 # Intro to VIM
 
@@ -534,20 +389,15 @@ Here's some tips if you've never used VIM before:
 [contributors]:https://github.com/spf13/spf13-vim/contributors
 
 [Vundle]:https://github.com/gmarik/vundle
-[PIV]:https://github.com/spf13/PIV
 [NERDCommenter]:https://github.com/scrooloose/nerdcommenter
 [Undotree]:https://github.com/mbbill/undotree
 [NERDTree]:https://github.com/scrooloose/nerdtree
 [ctrlp]:https://github.com/kien/ctrlp.vim
-[solarized]:https://github.com/altercation/vim-colors-solarized
-[neocomplete]:https://github.com/shougo/neocomplete
 [Fugitive]:https://github.com/tpope/vim-fugitive
-[Surround]:https://github.com/tpope/vim-surround
 [Tagbar]:https://github.com/majutsushi/tagbar
 [Syntastic]:https://github.com/scrooloose/syntastic
 [vim-easymotion]:https://github.com/Lokaltog/vim-easymotion
 [YouCompleteMe]:https://github.com/Valloric/YouCompleteMe
-[Matchit]:http://www.vim.org/scripts/script.php?script_id=39
 [Tabularize]:https://github.com/godlygeek/tabular
 [EasyMotion]:https://github.com/Lokaltog/vim-easymotion
 [Airline]:https://github.com/bling/vim-airline
