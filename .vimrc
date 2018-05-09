@@ -327,6 +327,9 @@
     noremap j gj
     noremap k gk
 
+    " Toggle line numbers
+    nnoremap <F2> :set nonumber!<CR>
+
     " End/Start of line motion keys act relative to row/wrap width in the
     " presence of `:set wrap`, and relative to line for `:set nowrap`.
     " Default vim behaviour is to act relative to text line in both cases
