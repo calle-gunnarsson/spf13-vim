@@ -116,7 +116,7 @@
     " }
 
     " Python {
-        Bundle 'klen/python-mode'
+        Bundle 'python-mode/python-mode'
         Bundle 'python_match.vim'
     " }
 
