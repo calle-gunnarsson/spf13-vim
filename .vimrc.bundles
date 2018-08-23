@@ -87,7 +87,8 @@
         Bundle 'rhysd/conflict-marker.vim'
         Bundle 'jiangmiao/auto-pairs'
         Bundle 'ctrlpvim/ctrlp.vim'
-        Bundle 'terryma/vim-multiple-cursors'
+        "Bundle 'terryma/vim-multiple-cursors'
+        Bundle 'mg979/vim-visual-multi'
 
         Bundle 'vim-airline/vim-airline'
         Bundle 'vim-airline/vim-airline-themes'
@@ -110,14 +111,21 @@
     " }
 
     " AutoComplete {
-    if !exists('g:no_ycm')
-        Bundle 'Valloric/YouCompleteMe'
-    endif
+        Bundle 'Shougo/deoplete.nvim'
+        Bundle 'roxma/nvim-yarp'
+        Bundle 'roxma/vim-hug-neovim-rpc'
+        Bundle 'zchee/deoplete-clang'
+        Bundle 'zchee/deoplete-go', {'build': {'unix': 'make'}}
+        Bundle 'HerringtonDarkholme/yats.vim'
+        Bundle 'mhartington/nvim-typescript', {'do': './install.sh'}
+        Bundle 'zchee/deoplete-jedi'
+        Bundle 'Shougo/neosnippet.vim'
+        Bundle 'Shougo/neosnippet-snippets'
+        let g:deoplete#enable_at_startup = 1
     " }
 
     " Python {
         Bundle 'python-mode/python-mode'
-        Bundle 'python_match.vim'
     " }
 
     " Javascript {
