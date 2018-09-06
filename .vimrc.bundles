@@ -117,7 +117,7 @@
         Bundle 'zchee/deoplete-clang'
         Bundle 'zchee/deoplete-go', {'build': {'unix': 'make'}}
         Bundle 'HerringtonDarkholme/yats.vim'
-        Bundle 'mhartington/nvim-typescript', {'do': './install.sh'}
+        " Bundle 'mhartington/nvim-typescript', {'do': './install.sh'}
         Bundle 'zchee/deoplete-jedi'
         Bundle 'Shougo/neosnippet.vim'
         Bundle 'Shougo/neosnippet-snippets'
