@@ -551,6 +551,8 @@
             vmap <Leader>a,, :Tabularize /,\zs<CR>
             nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
             vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+            nmap <Leader>a<Space> :Tabularize /^\s*\w*<CR>
+            vmap <Leader>a<Space> :Tabularize /^\s*\w*<CR>
         endif
     " }
 
