@@ -415,10 +415,10 @@
     " search results. To clear search highlighting rather than toggle it on
     " and off, add the following to your .vimrc.before.local file:
     "   let g:spf13_clear_search_highlight = 1
-    if exists('g:spf13_clear_search_highlight')
-        nmap <silent> <leader>/ :nohlsearch<CR>
-    else
+    if exists('g:spf13_toggle_search_highlight')
         nmap <silent> <leader>/ :set invhlsearch<CR>
+    else
+        nmap <silent> <leader>/ :nohlsearch<CR>
     endif
 
 
