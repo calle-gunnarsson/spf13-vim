@@ -87,42 +87,30 @@
         Bundle 'rhysd/conflict-marker.vim'
         Bundle 'jiangmiao/auto-pairs'
         Bundle 'ctrlpvim/ctrlp.vim'
-        "Bundle 'terryma/vim-multiple-cursors'
         Bundle 'mg979/vim-visual-multi'
 
+        Bundle 'chriskempson/base16-vim'
         Bundle 'vim-airline/vim-airline'
         Bundle 'vim-airline/vim-airline-themes'
 
         Bundle 'easymotion/vim-easymotion'
         Bundle 'mhinz/vim-signify'
+        Bundle 'editorconfig/editorconfig-vim'
     " }
 
     " General Programming {
-        Bundle 'mbbill/undotree'
         Bundle 'scrooloose/syntastic'
         Bundle 'tpope/vim-fugitive'
         Bundle 'scrooloose/nerdcommenter'
-        Bundle 'scrooloose/nerdtree'
-        Bundle 'jistr/vim-nerdtree-tabs'
+        "Bundle 'scrooloose/nerdtree'
+        "Bundle 'jistr/vim-nerdtree-tabs'
         Bundle 'luochen1990/rainbow'
         Bundle 'godlygeek/tabular'
-        if executable('ctags')
-            Bundle 'majutsushi/tagbar'
-        endif
     " }
 
     " AutoComplete {
-        Bundle 'Shougo/deoplete.nvim'
-        Bundle 'roxma/nvim-yarp'
-        Bundle 'roxma/vim-hug-neovim-rpc'
-        Bundle 'zchee/deoplete-clang'
-        Bundle 'zchee/deoplete-go', {'build': {'unix': 'make'}}
         Bundle 'HerringtonDarkholme/yats.vim'
-        " Bundle 'mhartington/nvim-typescript', {'do': './install.sh'}
-        Bundle 'zchee/deoplete-jedi'
-        Bundle 'Shougo/neosnippet.vim'
-        Bundle 'Shougo/neosnippet-snippets'
-        let g:deoplete#enable_at_startup = 1
+        Bundle 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
     " }
 
     " Python {
@@ -133,10 +121,10 @@
         Bundle 'elzr/vim-json'
         Bundle 'pangloss/vim-javascript'
         Bundle 'leafgarland/typescript-vim'
+        Bundle 'posva/vim-vue'
     " }
 
-    " HTML {
-        Bundle 'vim-scripts/HTML-AutoCloseTag'
+    " HTML/CSS {
         Bundle 'hail2u/vim-css3-syntax'
         Bundle 'groenewege/vim-less'
         Bundle 'gorodinskiy/vim-coloresque'
