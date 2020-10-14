@@ -59,6 +59,7 @@
     " }
     "
     " General {
+        Bundle 'morhetz/gruvbox'
         Bundle 'rhysd/conflict-marker.vim'
         Bundle 'jiangmiao/auto-pairs'
         Bundle 'ctrlpvim/ctrlp.vim'
